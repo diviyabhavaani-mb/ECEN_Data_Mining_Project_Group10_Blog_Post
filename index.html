@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KMNIST Character Classification</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">KMNIST Blog</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#abstract">Abstract</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#dataset">Dataset</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#results">Results</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#error">Error Analysis</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#conclusion">Conclusion</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://github.com/adimantamu/ECEN_Data_Mining_Project_Group10" target="_blank">GitHub</a></li>
+                </ul>
+                <button id="theme-toggle" class="btn btn-light ms-3">Toggle Theme</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-4">
+        <!-- Abstract -->
+        <section id="abstract" class="mb-5">
+            <h2 class="text-primary">Abstract</h2>
+            <p>This project studies handwritten Japanese character recognition on the Kuzushiji-MNIST (KMNIST) dataset. We compare logistic regression and multiple CNN architectures, achieving up to 97% accuracy with a tuned CNN.</p>
+        </section>
+
+        <!-- Dataset Overview -->
+        <section id="dataset" class="mb-5">
+            <h2 class="text-primary">Dataset Overview</h2>
+            <p>The KMNIST dataset contains 70,000 grayscale images of Japanese characters across 10 classes.</p>
+            <div class="row">
+                <div class="col-md-6"><img src="assets/kmnist_examples.png" class="img-fluid rounded" alt="KMNIST Examples"></div>
+                <div class="col-md-6"><img src="assets/kmnist_pca.png" class="img-fluid rounded" alt="PCA Visualization"></div>
+            </div>
+        </section>
+
+        <!-- Results -->
+        <section id="results" class="mb-5">
+            <h2 class="text-primary">Model Performance</h2>
+            <table class="table table-bordered">
+                <thead class="table-light"><tr><th>Model</th><th>Accuracy</th></tr></thead>
+                <tbody>
+                    <tr><td>Logistic Regression</td><td>59.8%</td></tr>
+                    <tr><td>Simple CNN</td><td>93.4%</td></tr>
+                    <tr><td>ResNet-like CNN</td><td>94.3%</td></tr>
+                    <tr><td>Improved CNN</td><td>96.7%</td></tr>
+                    <tr><td>Tuned Improved CNN</td><td>97.0%</td></tr>
+                </tbody>
+            </table>
+            <h3>Confusion Matrices</h3>
+            <div class="row">
+                <div class="col-md-4 mb-3"><img src="assets/cm_logreg.png" class="img-fluid rounded" alt="Logistic Regression"></div>
+                <div class="col-md-4 mb-3"><img src="assets/cm_simplecnn.png" class="img-fluid rounded" alt="Simple CNN"></div>
+                <div class="col-md-4 mb-3"><img src="assets/cm_resnet.png" class="img-fluid rounded" alt="ResNet CNN"></div>
+                <div class="col-md-4 mb-3"><img src="assets/cm_improved.png" class="img-fluid rounded" alt="Improved CNN"></div>
+                <div class="col-md-4 mb-3"><img src="assets/cm_tuned_test.png" class="img-fluid rounded" alt="Tuned CNN Test"></div>
+                <div class="col-md-4 mb-3"><img src="assets/cm_tuned_train.png" class="img-fluid rounded" alt="Tuned CNN Train"></div>
+            </div>
+        </section>
+
+        <!-- Error Analysis -->
+        <section id="error" class="mb-5">
+            <h2 class="text-primary">Error Analysis</h2>
+            <div class="row">
+                <div class="col-md-6 mb-3"><img src="assets/tuned_misclassified.png" class="img-fluid rounded" alt="Misclassified"></div>
+                <div class="col-md-6 mb-3"><img src="assets/cnn_saliency_2x3.png" class="img-fluid rounded" alt="Saliency Maps"></div>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section id="conclusion" class="mb-5">
+            <h2 class="text-primary">Conclusion</h2>
+            <p>Representation learning with CNNs significantly improves KMNIST classification compared to linear models. Future work includes data augmentation, deeper networks, and advanced regularization techniques.</p>
+        </section>
+    </div>
+
+    <footer class="bg-primary text-white text-center py-3">
+        <p>© 2025 ECEN Group 10 | Hosted on GitHub Pages</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
